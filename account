@@ -3,26 +3,26 @@ class Account:
     A class representing details for an account object
     """
 
-    def __init__(self, name: str, balance=0.0) -> None:
+    def __init__(self, name: str, balance=0) -> None:
         """
-        Function to set the name of the account as well as set the balance to 0
+        Method to set the name of the account as well as set the balance to 0
         :type name: Object
         :param name: Account owner's first name
         """
-        self.__account_name: str = name     # Name retrieved from the parameter: name from the init function
-        self.__account_balance: float = balance     # Account balance set to 0 as base value
+        self.__account_name: str = name  # Name retrieved from the parameter: name from the init function
+        self.__account_balance: float = balance  # Account balance set to 0 as base value
 
-    def deposit(self, amount: float) -> float:
+    def deposit(self, amount: float) -> bool:
         """
         Method to deposit money into the account
         :type amount: The amount to be deposited
         :return Returns the boolean value
         """
         # TODO: Need to account for invalid input and 0 entered for amount - exception handling
-        if amount <= 0:
+        if amount <= 0:  # If amount is less than 0 then it cannot be deposited
             return False
         if amount > 0:
-            self.__account_balance += amount    # Readjusts the value of account_balance if function is valid
+            self.__account_balance += amount  # Readjusts the value of account_balance if function is valid
             return True
 
     def withdraw(self, amount: float) -> bool:
