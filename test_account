@@ -1,3 +1,7 @@
+from account import *
+from pytest import *
+
+
 class Test:
     def setup_method(self):
         self.a1 = Account('John')
@@ -28,9 +32,9 @@ class Test:
         assert self.a2.deposit(0) == False
 
     def test_withdraw(self):
-        assert self.a1.withdraw(100) == True
+        assert self.a1.withdraw(100) == False
         assert self.a1.withdraw(-100) == False
-        assert self.a1.withdraw(0) == False
-        assert self.a2.withdraw(100) == True
+        assert self.a1.withdraw(0) is None
+        assert self.a2.withdraw(100) == False
         assert self.a2.withdraw(-100) == False
-        assert self.a2.withdraw(0) == False
+        assert self.a2.withdraw(0) is None
